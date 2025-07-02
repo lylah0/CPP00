@@ -6,7 +6,7 @@
 /*   By: lylrandr <lylrandr@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 14:36:59 by lylrandr          #+#    #+#             */
-/*   Updated: 2025/06/26 20:02:02 by lylrandr         ###   ########.fr       */
+/*   Updated: 2025/07/02 16:26:17 by lylrandr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,14 @@ class PhoneBook {
 	private:
 		Contact	_tab[8];
 		int	_index;
+		int	_count;
 	public:
 		PhoneBook();
 		~PhoneBook();
 		void	print_phonebook();
 		void	exit_prog();
+		void	print_contact();
+		void	add_contact();
 };
 
 #endif

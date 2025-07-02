@@ -6,7 +6,7 @@
 /*   By: lylrandr <lylrandr@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 18:59:36 by lylrandr          #+#    #+#             */
-/*   Updated: 2025/06/26 20:17:49 by lylrandr         ###   ########.fr       */
+/*   Updated: 2025/07/02 16:48:47 by lylrandr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,37 @@ Contact::~Contact(){
 	std::cout << "Contact destructor called" << std::endl;
 }
 
-void	Contact::add_contact() {
-	// PhoneBook;
-	// PhoneBook	test[i];
+void	Contact::print_contact(){
+	for (size_t i = 0; i < 10; i++) {
+		if (i == 9 && _FirstName.length() > 10)
+			std::cout << '.';
+		else if (i < _FirstName.length())
+			std::cout << _FirstName[i];
+		else
+			std::cout << ' ';
+	}
+	std::cout << "|";
+	for (size_t i = 0; i < 10; i++) {
+		if (i == 9 && _LastName.length() > 10)
+			std::cout << '.';
+		else if (i < _LastName.length())
+			std::cout << _LastName[i];
+		else
+			std::cout << ' ';
+	}
+	std::cout << "|";
+	for (size_t i = 0; i < 10; i++) {
+		if (i == 9 && _Nickname.length() > 10)
+			std::cout << '.';
+		else if (i < _Nickname.length())
+			std::cout << _Nickname[i];
+		else
+			std::cout << ' ';
+	}
+	std::cout << '|' << std::endl;
+}
 
+void	Contact::add_contact() {
 	std::cout << "First name :" << std::endl;
 	std::cin >> _FirstName;
 	std::cout << "Last name :" << std::endl;

@@ -1,0 +1,164 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   contact.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lylrandr <lylrandr@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/26 18:59:36 by lylrandr          #+#    #+#             */
+/*   Updated: 2025/07/02 14:20:25 by lylrandr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../contact.hpp"
+
+Contact::Contact(){
+	std::cout << "Contact constructor called" << std::endl;
+}
+
+Contact::~Contact(){
+	std::cout << "Contact destructor called" << std::endl;
+}
+
+void	Contact::add_contact() {
+	std::cout << "First name :" << std::endl;
+	std::cin >> _FirstName;
+	std::cout << "Last name :" << std::endl;
+	std::cin >> _LastName;
+	std::cout << "Nickname :" << std::endl;
+	std::cin >> _Nickname;
+	std::cout << "Phone number :" << std::endl;
+	std::cin >> _PhoneNumber;
+	std::cout << "Darkest secret :" << std::endl;
+	std::cin >> _DarkestSecret;
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lylrandr <lylrandr@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/26 14:36:27 by lylrandr          #+#    #+#             */
+/*   Updated: 2025/06/26 18:46:26 by lylrandr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../phonebook.hpp"
+
+int	main(){
+	while(1){
+		std::string input;
+			std::cin >> input;
+			if (input == "ADD" || input == "SEARCH" || input == "EXIT")
+			{
+				PhoneBook	objet;
+				Contact		contact;
+				if (input == "ADD")
+					contact.add_contact();
+				else if (input == "SEARCH")
+					objet.print_phonebook();
+				else if (input == "EXIT")
+					objet.exit_prog();
+			}
+	}
+	return (0);
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lylrandr <lylrandr@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/24 15:25:16 by lylrandr          #+#    #+#             */
+/*   Updated: 2025/06/26 20:00:26 by lylrandr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../phonebook.hpp"
+
+PhoneBook::PhoneBook(){
+	std::cout << "Phonebook constructor called" << std::endl;
+}
+
+PhoneBook::~PhoneBook(){
+	std::cout << "Phonebook destructor called" << std::endl;
+}
+
+void	PhoneBook::print_phonebook(){
+	std::cout << _index << "         |";
+	// std::cout << contact_info._FirstName;
+}
+
+void	PhoneBook::exit_prog(){
+	PhoneBook::~PhoneBook();
+	// Contact::~Contact();
+	exit(0);
+}
+
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   contact.hpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lylrandr <lylrandr@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/26 19:53:10 by lylrandr          #+#    #+#             */
+/*   Updated: 2025/07/01 17:01:30 by lylrandr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#pragma once
+
+# include	<iostream>
+# include	<string>
+# include	<string.h>
+# include	<stdlib.h>
+
+class Contact{
+	private:
+		std::string	_FirstName;
+		std::string	_LastName;
+		std::string	_Nickname;
+		std::string	_PhoneNumber;
+		std::string	_DarkestSecret;
+	public:
+		Contact();
+		~Contact();
+		void	add_contact();
+};
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lylrandr <lylrandr@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/26 14:36:59 by lylrandr          #+#    #+#             */
+/*   Updated: 2025/07/01 17:00:38 by lylrandr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef	PHONEBOOK_HPP
+#define	PHONEBOOK_HPP
+
+# include	<iostream>
+# include	<string>
+# include	<string.h>
+# include	<stdlib.h>
+# include	"contact.hpp"
+
+class PhoneBook {
+	private:
+		Contact	_tab[8];
+		int	_index;
+	public:
+		PhoneBook();
+		~PhoneBook();
+		void	print_phonebook();
+		void	exit_prog();
+};
+
+#endif

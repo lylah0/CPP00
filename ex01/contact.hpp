@@ -6,13 +6,16 @@
 /*   By: lylrandr <lylrandr@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 19:53:10 by lylrandr          #+#    #+#             */
-/*   Updated: 2025/06/26 19:54:39 by lylrandr         ###   ########.fr       */
+/*   Updated: 2025/07/02 16:34:56 by lylrandr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "phonebook.hpp"
+# include	<iostream>
+# include	<string>
+# include	<string.h>
+# include	<stdlib.h>
 
 class Contact{
 	private:
@@ -25,4 +28,5 @@ class Contact{
 		Contact();
 		~Contact();
 		void	add_contact();
+		void	print_contact();
 };
