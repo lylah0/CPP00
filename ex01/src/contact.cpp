@@ -21,6 +21,15 @@ Contact::~Contact(){
 }
 
 void	Contact::print_contact(){
+	std::cout << _FirstName << std::endl;
+	std::cout << _LastName << std::endl;
+	std::cout << _Nickname << std::endl;
+	std::cout << _PhoneNumber << std::endl;
+	std::cout << _DarkestSecret << std::endl;
+}
+
+// mettre les infos a sur la droite
+void	Contact::print_tab_contact(){
 	for (size_t i = 0; i < 10; i++) {
 		if (i == 9 && _FirstName.length() > 10)
 			std::cout << '.';

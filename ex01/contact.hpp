@@ -28,5 +28,6 @@ class Contact{
 		Contact();
 		~Contact();
 		void	add_contact();
+		void	print_tab_contact();
 		void	print_contact();
 };

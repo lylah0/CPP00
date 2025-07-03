@@ -21,11 +21,22 @@ PhoneBook::~PhoneBook(){
 }
 
 void	PhoneBook::print_phonebook(){
-	std::cout << "Index     |First Name|Last Name |Nickname  |" << std::endl;
+	int	idx;
+	std::cout << "Index     |First Name| Last Name|  Nickname|" << std::endl;
 	for (int i = 0; i < _count; ++i) {
-		std::cout << i << "         |";
-		_tab[i].print_contact();
+		std::cout << "         " << i << '|';
+		_tab[i].print_tab_contact();
 	}
+	std::cout << "Enter the index of the contact you wish to see :"; std::cin >> idx ;
+	while (1){
+		if (idx > _index || isdigit(idx)) {
+			std::cout << "Enter a valid index :"; std::cin >> idx;
+		}
+		else if (idx < _index){
+	 		break;
+		}
+	}
+	_tab[idx].print_contact();
 }
 
 void PhoneBook::add_contact() {
@@ -34,7 +45,6 @@ void PhoneBook::add_contact() {
 	if (_count < 8)
 		_count++;
 }
-
 
 void	PhoneBook::exit_prog(){
 	PhoneBook::~PhoneBook();
