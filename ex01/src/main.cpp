@@ -24,8 +24,10 @@ int	main(){
 					objet.add_contact();
 				else if (input == "SEARCH")
 					objet.print_phonebook();
-				else if (input == "EXIT")
-					objet.exit_prog();
+				else if (input == "EXIT") {
+					
+					break;
+				}
 			}
 	}
 	return (0);

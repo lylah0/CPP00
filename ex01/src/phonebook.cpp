@@ -53,11 +53,3 @@ void PhoneBook::add_contact() {
 	if (_count < 8)
 		_count++;
 }
-
-void	PhoneBook::exit_prog(){
-	PhoneBook::~PhoneBook();
-	// Contact::~Contact();
-	exit(0);
-}
-
-
