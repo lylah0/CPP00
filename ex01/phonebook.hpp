@@ -13,10 +13,10 @@
 #ifndef	PHONEBOOK_HPP
 #define	PHONEBOOK_HPP
 
+# include	<iomanip>
 # include	<iostream>
 # include	<string>
-# include	<string.h>
-# include	<stdlib.h>
+# include	<cstdlib>
 # include	<ctype.h>
 # include	"contact.hpp"
 

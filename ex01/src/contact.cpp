@@ -20,6 +20,7 @@ Contact::~Contact(){
 	std::cout << "Contact destructor called" << std::endl;
 }
 
+// print toutes les infos du contact
 void	Contact::print_contact(){
 	std::cout << _FirstName << std::endl;
 	std::cout << _LastName << std::endl;
@@ -28,6 +29,7 @@ void	Contact::print_contact(){
 	std::cout << _DarkestSecret << std::endl;
 }
 
+// print infos contacts dans tab
 // mettre les infos a sur la droite
 void	Contact::print_tab_contact(){
 	for (size_t i = 0; i < 10; i++) {
@@ -59,6 +61,7 @@ void	Contact::print_tab_contact(){
 	std::cout << '|' << std::endl;
 }
 
+// ajout d'un contact
 void	Contact::add_contact() {
 	std::cout << "First name :" << std::endl;
 	std::cin >> _FirstName;

@@ -16,6 +16,7 @@ int	main(){
 	PhoneBook	objet;
 	std::string input;
 	while(1){
+		std::cout << "Enter a cmd :";
 			std::cin >> input;
 			if (input == "ADD" || input == "SEARCH" || input == "EXIT")
 			{

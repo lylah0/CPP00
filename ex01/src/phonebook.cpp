@@ -20,25 +20,33 @@ PhoneBook::~PhoneBook(){
 	std::cout << "Phonebook destructor called" << std::endl;
 }
 
+// print tableau contact
 void	PhoneBook::print_phonebook(){
+	std::string input;
 	int	idx;
-	std::cout << "Index     |First Name| Last Name|  Nickname|" << std::endl;
+	std::cout << "     Index|First Name| Last Name|  Nickname|" << std::endl;
 	for (int i = 0; i < _count; ++i) {
 		std::cout << "         " << i << '|';
 		_tab[i].print_tab_contact();
 	}
-	std::cout << "Enter the index of the contact you wish to see :"; std::cin >> idx ;
+	std::cout << "Enter the index of the contact you wish to see : ";
+	std::getline(std::cin, input);
+	idx = std::atoi(input.c_str());
 	while (1){
-		if (idx > _index || isdigit(idx)) {
-			std::cout << "Enter a valid index :"; std::cin >> idx;
+		if (idx >= _index || !std::isdigit(input[0]))
+		 {
+			std::cout << "Enter a valid index : ";
+			std::getline(std::cin, input);
+			idx = std::atoi(input.c_str());
 		}
-		else if (idx < _index){
+		else {
 	 		break;
 		}
 	}
 	_tab[idx].print_contact();
 }
 
+// ajoute contact
 void PhoneBook::add_contact() {
 	_tab[_index].add_contact();
 	_index = (_index + 1) % 8;
