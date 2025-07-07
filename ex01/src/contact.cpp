@@ -30,36 +30,24 @@ void	Contact::print_contact(){
 }
 
 // print infos contacts dans tab
-// mettre les infos a sur la droite
-void	Contact::print_tab_contact(){
-	for (size_t i = 0; i < 10; i++) {
-		if (i == 9 && _FirstName.length() > 10)
-			std::cout << '.';
-		else if (i < _FirstName.length())
-			std::cout << _FirstName[i];
-		else
-			std::cout << ' ';
-	}
+void Contact::print_tab_contact() {
+	if (_FirstName.length() > 10)
+		std::cout << std::setw(10) << _FirstName.substr(0, 9) + ".";  // tronqué
+	else
+		std::cout << std::setw(10) << _FirstName;
 	std::cout << "|";
-	for (size_t i = 0; i < 10; i++) {
-		if (i == 9 && _LastName.length() > 10)
-			std::cout << '.';
-		else if (i < _LastName.length())
-			std::cout << _LastName[i];
-		else
-			std::cout << ' ';
-	}
+	if (_LastName.length() > 10)
+		std::cout << std::setw(10) << _LastName.substr(0, 9) + ".";
+	else
+		std::cout << std::setw(10) << _LastName;
 	std::cout << "|";
-	for (size_t i = 0; i < 10; i++) {
-		if (i == 9 && _Nickname.length() > 10)
-			std::cout << '.';
-		else if (i < _Nickname.length())
-			std::cout << _Nickname[i];
-		else
-			std::cout << ' ';
-	}
-	std::cout << '|' << std::endl;
+	if (_Nickname.length() > 10)
+		std::cout << std::setw(10) << _Nickname.substr(0, 9) + ".";
+	else
+		std::cout << std::setw(10) << _Nickname;
+	std::cout << "|" << std::endl;
 }
+
 
 // ajout d'un contact
 void	Contact::add_contact() {
